@@ -5,9 +5,9 @@ import java.awt.Color;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    //int[] coluna = new int[3]; //primeira coluna 0
-    //int[] linha = new int[3]; //menor 0, medio 1, grande 2
+    int [][] desenho = {{1,2,3},{0,0,0},{0,0,0}}; //estrutura para ligar os 3 na primeira coluna
     
+
     int menor = 1;
     int medio = 2;
     int maior = 3;
@@ -52,43 +52,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         public void logica(){
             
-            if(cabecaT2 == 0 && cabecaT3 == 0){
-                cabecaT1 = 2;
-                menor = 0;
-                cabecaT3 = 1;
-                this.desenhos();
-                torre1 = 0;
-                torre3 = 1;
-                menor = 1;
-                medio = 0 ;
-                maior = 0;
-                this.desenhos();
-                this.resetD();
-                this.resetT();
-            }else if(cabecaT1 == 2){
-                if(cabecaT2 > cabecaT1 || cabecaT2 == 0){
-                    cabecaT2 = 2;
-                    cabecaT1 = 3;
-                    menor = 0;
-                    medio = 0;
-                    torre1 = 1;
-                    //System.out.println("Entrei");
-                    this.desenhos();
-                    torre1 = 0;
-                    torre2 = 1;
-                    medio = 2;
-                    maior = 0;
-                    this.desenhos();
-                }
-                
-            }else if(cabecaT2 == 2){
-                
-            }
+            
             
             
        
+        }//fim método lógica
+        
+        public void mapeaDesenho(){
+            for(int linha = 0; linha < 3; linha++){
+                for(int coluna = 0; coluna < 3; coluna++){
+                    if(desenho[linha][coluna] == 1){
+                        menor1.setBackground(Color.green);
+                    }
+                    if(desenho[linha][coluna] == 2){
+                        medio1.setBackground(Color.blue);
+                    }
+                }
+            }
         }
         
+        
+        /*
         public void desenhos(){
             //System.out.println("Entrei nos desenhos");
             
@@ -146,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     menor = 1;
                     medio = 2;
                     maior = 3;
-                    teste */
+                    teste 
                     
                 }
             }//fim torre 1
@@ -205,7 +189,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     menor = 1;
                     medio = 2;
                     maior = 3;
-                    teste*/
+                    teste
                 }
             }//fim torre 2
             
@@ -258,8 +242,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     menor3.setBackground(Color.green);
                 }
             }//fim torre 3  
-        }//final método desenhos
+        }//final método desenhos */
         
+
+
         public void resetD(){
             menor = 1;
             medio = 2;
