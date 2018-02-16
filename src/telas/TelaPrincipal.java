@@ -6,7 +6,6 @@ import java.awt.Color;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     int [][] desenho = {{1,2,3},{0,0,0},{0,0,0}}; //estrutura para ligar os 3 na primeira coluna
-    
 
     int menor = 1;
     int medio = 2;
@@ -25,6 +24,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setSize(400, 200);
         this.setLocationRelativeTo(null);
+        
         maior1.setBackground(Color.red);
         maior2.setBackground(Color.white);
         maior3.setBackground(Color.white);
@@ -45,14 +45,35 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     Thread.sleep(1000);
                 }catch(Exception e){}
                 this.logica();
-                //this.desenhos(); 
             } //final while
             
         } //final run
         
         public void logica(){
             
+            //passo 1 com o menor
+            if(desenho[0][0] == 1){
+                if(desenho[1][0] == 0 && desenho[2][0] == 0){
+                    desenho[0][0] = 0;
+                    desenho[2][0] = 7;
+                    this.mapeaDesenho();
+                    System.out.println("Entrei no 1 if");
+                }else if(desenho[1][0] == 0){
+                    desenho[0][0] = 0;
+                    desenho[1][0] = 4;
+                    this.mapeaDesenho();
+                    System.out.println("Entrei no 2 if");
+                }
+            }
             
+            //passo 2 com o mèdio
+            if(desenho[0][1] == 2){
+                if(desenho[1][0] == 0){
+                    desenho[0][1] = 0;
+                    desenho[1][1] = 5;
+                    this.mapeaDesenho();
+                }
+            }
             
             
        
@@ -63,12 +84,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 for(int coluna = 0; coluna < 3; coluna++){
                     if(desenho[linha][coluna] == 1){
                         menor1.setBackground(Color.green);
+                    }else if (desenho[linha][coluna] == 0){
+                        menor1.setBackground(Color.white);
                     }
-                    if(desenho[linha][coluna] == 2){
+                    
+                    else if(desenho[linha][coluna] == 2){
                         medio1.setBackground(Color.blue);
+                    } else if(desenho[linha][coluna] == 0){
+                        medio1.setBackground(Color.white);
                     }
+                    
+                    
+                    else if(desenho[linha][coluna] == 3){
+                        maior1.setBackground(Color.red);
+                    }else if(desenho[linha][coluna] == 4){
+                        menor2.setBackground(Color.green);
+                    }else if(desenho[linha][coluna] == 5){
+                        medio2.setBackground(Color.blue);
+                    }else if(desenho[linha][coluna] == 6){
+                        maior2.setBackground(Color.red);
+                    }
+                    
+                    else if(desenho[linha][coluna] == 7){
+                        menor3.setBackground(Color.green);
+                    }else if(desenho[linha][coluna] == 0){
+                        menor3.setBackground(Color.white);
+                    }
+                    
+                    else if(desenho[linha][coluna] == 8){
+                        medio3.setBackground(Color.blue);
+                    }else if(desenho[linha][coluna] == 9){
+                        maior3.setBackground(Color.red);
+                    }
+                    
+                    
                 }
             }
+            
+            
         }
         
         
