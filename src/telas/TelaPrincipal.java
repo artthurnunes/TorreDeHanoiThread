@@ -7,6 +7,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     int [][] desenho = {{1,2,3},{0,0,0},{0,0,0}}; //estrutura para ligar os 3 na primeira coluna
 
+    //comite teste
+    
     int menor = 1;
     int medio = 2;
     int maior = 3;
